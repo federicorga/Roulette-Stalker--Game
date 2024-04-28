@@ -1,0 +1,198 @@
+
+
+.content-winer-game-rulet{    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
+
+.button-initial-game-reload{
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    outline: none;
+    width: 100px;
+    margin-left: 20px;
+    transition: 0.5s;
+
+}
+
+.button-initial-game-reload:hover{
+    transform: scale(1.1);
+}
+
+.button-initial-game-reload:active{
+    transform: scale(0.9);
+}
+
+.button-initial-game-reload img{
+    width: 100%;
+}
+
+.content-weapon-buttons-shoot{
+    
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content-staditst-button-reaload{
+display: flex;
+}
+
+.stadistic-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.content-weapon-RouletteGame{
+    display: flex;
+    background-blend-mode: multiply;
+    background-image: url("/img/woodtable.png");
+    height: 150px;
+    background-size: cover;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.img-weapon-static{
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: 0.5s;
+    width: 230px;
+}
+
+.img-weapon-static:hover{
+    transform: scale(1.1);
+}
+
+
+.img-weapon-static:active{
+    transform: scale(0.9);
+}
+
+.img-weapon-static-invert{
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: 0.5s;
+    width: 230px;
+    transform: scaleX(-1) scale(1);
+}
+.img-weapon-static-invert:hover{
+    transform: scaleX(-1) scale(1.1); /* Escala negativa y aumento de tamaño */
+}
+
+.img-weapon-static-invert:active{
+    transform: scaleX(-1) scale(0.9);
+}
+
+
+
+
+
+.content-weapon{
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-info-rulet{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+.Arraybullets-img-container{
+    border: 2px solid #1d1c1c;
+    display: flex;
+    justify-content: center;
+}
+
+.contentall-arrabullets-img{
+    display: flex;
+    justify-content: center;
+    background-color: #474644;
+    background-blend-mode: multiply;
+    background-image: url('https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg');
+
+    height: 59px;
+    transform: scaleY(-1) scale(1);
+    transition: 0.5s;
+    align-items: center;
+   
+}
+
+.invertY{
+  
+    transition: 0.5s;
+    transform: scaleY(-1) scale(1);
+}
+
+.invertY2{
+    transition: 0.5s;
+    transform: scaleY(1) scale(1);
+}
+
+.content-onebullet-img img{
+    height: 100%;
+}
+
+.ocultarbalas img{
+transition: 0.2s !important;
+    opacity: 0 !important;
+}
+
+.mostrarbala img{
+    transition: 0.2s;
+    opacity: 1 !important;
+    
+  
+}
+
+.content-onebullet-img{
+    border: 2px solid #1d1c1c;
+    background-color: #0000006b;
+    opacity: 1;
+    display: flex;
+    padding: 0 1px;
+    margin: 0 1px;
+    transition: 0.2s;
+    width: 14.4px;
+    height: 86%;
+    justify-content: center;
+    align-items: center;
+}
+
+.turnoplayer{
+    text-align: center;
+}
+
+.content-boxUserInfo-RouletteGame{
+    display: flex;
+ 
+    justify-content: center;
+}
+
+.backgorund-content-box-bullets{
+    border: 3px solid #181818;
+    background: #0000008f;
+}
+
+.content-UserBoxInfo-Inventori{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+

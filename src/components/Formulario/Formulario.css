@@ -1,0 +1,90 @@
+.content-formulario{
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 13px 5px transparent;
+    background: #00000073;
+    width: 500px;
+}
+
+.content-form-invert{
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 13px 5px transparent;
+    background: #00000073;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.form-invert{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.imagenforselect {
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .imagenforselect:hover{
+   transform: scale(1.1);
+  }
+
+  .imagenforselect:active{
+    transform: scale(0.9);
+   }
+  
+  .seleccionada {
+    border: 2px solid rgb(221, 156, 5); /* Cambia el borde para resaltar la imagen seleccionada */
+ 
+  }
+
+  .btn-saveform{
+
+    background: rgba(51, 51, 51, .5);
+    border: 2px #776b6b;
+    border-style: solid;
+    padding-left: 0.2rem;
+    color: #f2e8d9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    margin-bottom: 10px;
+  
+  }
+
+  .btn-saveform:active{
+    transition: 0.2s;
+    transform: scale(0.9);
+    border: 3px #776b6b;
+    border-style: solid;
+padding: 2px;
+  }
+
+  .galeria{
+    width: 500px;
+    box-shadow: 0 10px 13px -7px #000, 5px 5px 13px 5px transparent;
+    background: #00000073;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+
+  .input-form{
+    background: rgba(51, 51, 51, .5);
+    border: 2px #776b6b;
+    border-style: solid;
+    padding-left: 0.2rem;
+    color: #f2e8d9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    margin-left: 5px;
+  }
+
+
+  .select-form{
+    background: rgba(51, 51, 51, .5);
+    border: 2px #776b6b;
+    border-style: solid;
+    padding-left: 0.2rem;
+    color: #f2e8d9;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    margin-left: 5px;
+  }

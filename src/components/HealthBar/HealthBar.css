@@ -1,0 +1,18 @@
+.health-bar {
+    margin-top: 5px;
+    width: 130px;
+    height: 20px;
+    border: 1px solid #333131;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+  }
+  
+  .health-progress {
+    transition: 0.5s;
+    height: 100%;
+    background-color: #2b8b24;
+    background-blend-mode: multiply;
+    background-image: url('https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg');
+    border-radius: 5px;
+  }
+  

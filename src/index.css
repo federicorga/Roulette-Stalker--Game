@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'stalker';
+  src: url('../font/AmazS.T.A.L.K.E.R.v.3.0.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+html{
+  animation: animateCursor 0.8s infinite;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik",sans-serif;
+    
+    
+    line-height: inherit;
+    background-color:var(--clr-color1) ;
+    color: #f2e8d9;
+
+
+    background: url('https://www.stalker2.com/_nuxt/img/assets/pages/home/s3-zone/bg.jpg');
+    background-color: black;
+background-position-y: -7px;
+    background-repeat: no-repeat;
+
+    color: #f2e8d9;
+  
+  }
+
+
+  h1{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 5rem;
+    font-family: 'stalker', sans-serif;
+    letter-spacing: 5px;
+    color:var(--clr-colorwhite);
+    font-weight: 100;
+
+  }
+
+  h2{
+    margin: 0;
+  }
+  
+  p{margin: 0;}
+
+  :root{
+    --clr-colortext1:#f2e8d9;
+    -clr-colortext2:#ee991a;
+    --clr-colorwhite:#FAFBFB;
+    --clr-color1:#181518;
+    --clr-color2:#EAA91A;
+    --clr-color3:#795632;
+    --clr-color4:#3A3C30;
+    --clr-color5:#677758;
+    --clr-color6:#5F6350;
+
+  }
+
+  .section-titulo-ruleta{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-ruleta-titulo{
+    width: 100px;
+    padding: 0 20px;
+  }
+
+
+@keyframes animateCursor {
+
+    0%{
+      cursor: url("/img/mouse/mouse_frame0.gif"), auto;
+    }
+    14.2857%{
+      cursor: url("/img/mouse/mouse_frame1.gif"), auto;
+    }
+    28.5714%{
+      cursor: url("/img/mouse/mouse_frame2.gif"), pointer;
+    }
+    42.8571%{
+      cursor: url("/img/mouse/mouse_frame3.gif"), pointer;
+    }
+    57.1429%{
+      cursor: url("/img/mouse/mouse_frame4.gif"), pointer;
+    }
+    71.4286%{
+      cursor: url("/img/mouse/mouse_frame5.gif"), pointer;
+    }
+    85.7143%{
+      cursor: url("/img/mouse/mouse_frame6.gif"), pointer;
+    }
+    100%{
+      cursor: url("/img/mouse/mouse_frame7.gif"), pointer;
+    }
+    
+  };
+
+  [data-tooltip] {
+    display: flex;
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    background-color: black;
+    color: white;
+    font-size: .75rem;
+    padding: .25rem .5rem;
+    border: 1px solid gray;
+    border-radius: .25rem;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(2rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: .1s;
+    width: max-content;
+    margin-top: .25rem;
+}
+
+[data-tooltip][data-tooltip-bottom]::after {
+    transform: translateX(-50%) translateY(-2rem);
+    bottom: unset;
+    top: 100%;
+}
+
+@media (hover: hover) {
+    [data-tooltip]:hover::after {
+        transform: translateX(-50%);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+[data-tooltip][data-tooltip-left]::after {
+    bottom: unset;
+    left: unset;
+    transform: translateX(-2rem);
+    right: 100%;
+}
+
+@media (hover: hover) {
+    [data-tooltip][data-tooltip-left]:hover::after {
+        bottom: unset;
+        left: unset;
+        transform: translateX(0);
+        right: 100%;
+    }
+}
+
+
+
+.front-initial {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background-color: #ee991a;
+  background-blend-mode: multiply;
+  background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg);
+  padding: 16px 32px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+
+}
+
+.front-initial a{
+  color: inherit; /* Hereda el color del texto del elemento padre */
+  text-decoration: none; /* Elimina la subrayado predeterminado */
+  padding: 16px 16px;
+}
+
+
+ 
+.pushable:hover .front-initial  {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front-initial {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}

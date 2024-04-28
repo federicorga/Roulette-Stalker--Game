@@ -1,0 +1,14 @@
+
+.button-item{
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: 0.5s;
+    height: 100%;
+}
+
+.button-item:hover{
+    transform: scale(1.1);
+}

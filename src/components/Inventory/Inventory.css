@@ -1,0 +1,252 @@
+.main_back_inventory {
+    position: absolute;
+    border-radius: 10px;
+    /* transform: rotate(90deg); */
+    width: 11em;
+    height: 11em;
+    /* background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2); */
+    background-image: url(/img/stalkeritems/mochila.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* z-index: -2; */
+    /* box-shadow: inset 0px 0px 180px 5px #ffffff;*/
+    transition: 0.5s;
+  }
+  
+  .main_inventory {
+    display: flex;
+    flex-wrap: wrap;
+    width: 14em;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+  }
+  
+  .box_inventory {
+    width: 60px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: .4s ease-in-out, .2s background-color ease-in-out, .2s background-image ease-in-out;
+  
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .box_inventory .ocult_item_inventory{
+    display: flex;
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #cc39a4;
+    align-items: center;
+  }
+  
+  .box_inventory:nth-child(2) {
+    border-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(2) .box2 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #03A9F4;
+  }
+  
+  .box_inventory:nth-child(3) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(3) .box3{
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #ffb5d2;
+  }
+  
+  .box_inventory:nth-child(4) {
+    border-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(4) .box4 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: black;
+  }
+  
+  .box_inventory:nth-child(5) {
+    border-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(5) .boxcentral {
+    position: absolute;
+    margin-left: 0.2em;
+    margin-top: 0.2em;
+    opacity: 0;
+    transition: .2s ease-in-out;
+  }
+  
+  .box_inventory:nth-child(6) {
+    border-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(6) .box6 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #8c9eff;
+  }
+  
+  .box_inventory:nth-child(7) {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(7) .box7 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: black;
+  }
+  
+  .box_inventory:nth-child(8) {
+    border-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(8) .box8 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #29b6f6;
+  }
+  
+  .box_inventory:nth-child(9) {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .box_inventory:nth-child(9) .box9 {
+    opacity: 0;
+    transition: .2s ease-in-out;
+  }
+  
+  .main_inventory:hover {
+    width: 14em;
+    cursor: pointer;
+  }
+  
+  .main_inventory:hover .main_back_inventory {
+   
+    z-index: -2;
+    opacity: 0;
+  }
+  
+  .main_inventory:hover .box_inventory {
+    margin: .2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .main_inventory:hover .box_inventory:nth-child(5) {
+    border: transparent;
+  }
+  
+  .main_inventory:hover .text {
+    opacity: 0;
+    z-index: -3;
+  }
+  
+  .main_inventory:hover .ocult_item_inventory {
+    opacity: 1;
+  }
+  
+
+  
+  .box_inventory:nth-child(1):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  .box_inventory:nth-child(2):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  .box_inventory:nth-child(3):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  .box_inventory:nth-child(4):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  
+  .box_inventory:nth-child(5):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+
+  .box_inventory:nth-child(6):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  
+  .box_inventory:nth-child(7):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  
+  .box_inventory:nth-child(8):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  
+  .box_inventory:nth-child(9):hover {
+    background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/buttons/white-after.svg);
+    background-color: #565147;
+    background-blend-mode: overlay;
+  }
+  
+
+  
+  @keyframes backgroundIMG {
+    100% {
+      background-image: linear-gradient(#BF66FF,#6248FF,#00DDEB);
+    }
+  }
+  
+ 
+  
+
+
+  .text_inventory {
+    position: absolute;
+    font-size: 0.7em;
+    transition: .4s ease-in-out;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.33em;
+    z-index: 3;
+  }
