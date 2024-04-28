@@ -20,7 +20,7 @@ body{
     color: #f2e8d9;
 
 
-    background: url('https://www.stalker2.com/_nuxt/img/assets/pages/home/s3-zone/bg.jpg');
+    background: url('./img/ruletinicio.png');
     background-color: black;
 background-position-y: -7px;
     background-repeat: no-repeat;
@@ -195,4 +195,11 @@ background-position-y: -7px;
 .pushable:active .front-initial {
   transform: translateY(-2px);
   transition: transform 34ms;
+}
+
+.content-button-star-game{
+  display: flex;
+  justify-content: center;
+  padding-right: 40px;
+  padding-top: 100px;
 }

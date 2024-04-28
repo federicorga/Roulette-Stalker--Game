@@ -169,7 +169,11 @@ function playGame(){
 
   return (
     
-    <div>
+    <div className='conent-rouletteGame'>
+           <section className='section-titulo-ruleta'>
+      <h1>R.U.L.E.T.A ~ <img className='img-ruleta-titulo' src="/img/cargando.webp" alt="" /> ~ S.T.A.L.K.E.R</h1>
+
+      </section>
            <div className='content-menu-Roullete'>
             <button className='pushable'>
             <span className="shadow"></span>

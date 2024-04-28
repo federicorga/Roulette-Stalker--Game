@@ -27,14 +27,16 @@ const App = () => {
    
     <RouletteFunctionsProvider>
 
-      <section className='section-titulo-ruleta'>
-      <h1>R.U.L.E.T.A ~ <img className='img-ruleta-titulo' src="/img/cargando.webp" alt="" /> ~ S.T.A.L.K.E.R</h1>
-
-      </section>
 
       <Routes> 
       <Route path="/" element={  
       <div className='content-buton-playgame-menu'>
+        
+      <section className='section-titulo-ruleta'>
+      <h1>R.U.L.E.T.A ~ <img className='img-ruleta-titulo' src="/img/cargando.webp" alt="" /> ~ S.T.A.L.K.E.R</h1>
+
+      </section>
+      <div className='content-button-star-game'>
             <button className='pushable' onClick={ReloadButton}>
             <span className="shadow"></span>
             <span className="edge"></span>
@@ -43,6 +45,7 @@ const App = () => {
             <Link to="/select">iniciar Juego</Link>
             </span>
             </button>
+            </div>
        </div>}></Route>
       <Route path="/select" element={ <Menu></Menu>}></Route>
      

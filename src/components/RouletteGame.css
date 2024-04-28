@@ -1,5 +1,12 @@
 
 
+.conent-rouletteGame{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(https://www.stalker2.com/_nuxt/img/assets/pages/home/s3-zone/bg.jpg);
+}
+
 .content-winer-game-rulet{    padding-top: 50px;
     display: flex;
     flex-direction: column;
