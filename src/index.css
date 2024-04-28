@@ -20,7 +20,7 @@ body{
     color: #f2e8d9;
 
 
-    background: url('./img/ruletinicio.png');
+    background: url('/img/ruletinicio.png');
     background-color: black;
 background-position-y: -7px;
     background-repeat: no-repeat;
@@ -29,6 +29,9 @@ background-position-y: -7px;
   
   }
 
+  button{
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+  }
 
   h1{
     display: flex;
@@ -180,6 +183,7 @@ background-position-y: -7px;
 }
 
 .front-initial a{
+  cursor: url("/img/mouse/handpoint.webp"), pointer;
   color: inherit; /* Hereda el color del texto del elemento padre */
   text-decoration: none; /* Elimina la subrayado predeterminado */
   padding: 16px 16px;
