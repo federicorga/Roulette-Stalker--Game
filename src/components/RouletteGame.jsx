@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 const RouletteGame = () => {
 
+  
 
   const {
      //IMPORT FORMULARIO
@@ -231,8 +232,8 @@ function playGame(){
               <img src={rutaImagen} alt={`Bala ${index}`} width={'19px'} />
           </div>
 ))}
-{/* Llenar el resto de los espacios hasta 9 con divs vacíos */}
-{Array.from({ length: 9 - (bulletsArrayRender ? bulletsArrayRender.length : 0) }).map((_, index) => (
+{/* Llenar el resto de los espacios hasta 8 con divs vacíos */}
+{Array.from({ length: 8- (bulletsArrayRender ? bulletsArrayRender.length : 0) }).map((_, index) => (
     <div key={index + (bulletsArrayRender ? bulletsArrayRender.length : 0)} className={`content-onebullet-img ${showBulletsClass}`}>
         {/* Este div estará vacío */}
     </div>

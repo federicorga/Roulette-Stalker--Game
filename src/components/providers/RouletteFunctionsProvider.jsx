@@ -14,7 +14,7 @@ export function RouletteFunctionsProvider({children}) {
 
 
 
-  //COMPONENTES DE FORMULARIO
+  //ESTADOS DE FORMULARIO
   const [nombre, setNombre] = useState('');
   const [faccion, setFaccion] = useState('');
   const [genero, setGenero] = useState('');
@@ -34,7 +34,7 @@ export function RouletteFunctionsProvider({children}) {
   const [imagenSeleccionada2, setImagenSeleccionada2] = useState(null);
 
 
-  //Componentes de jeugo
+  //ESTADOS DE JUEGO
 
   const [jugador1, setJugador1Name]=useState('player 1'); //nombre de jugador 1
   const [jugador2, setJugador2Name]=useState('player 2'); //nombre de jugador 2
@@ -91,6 +91,7 @@ export function RouletteFunctionsProvider({children}) {
             bulletsRender.push('/img/weapon/bullets/Blue_Bullet.png');
           }
         });
+        console.log(bulletsRender.length);
         
         bulletsRender=MezclarArray(bulletsRender);
       
@@ -307,58 +308,44 @@ export function RouletteFunctionsProvider({children}) {
               functionAction;
             }
     };
-
-
     function MezclarArray(array) { //esta funcion mezcla la posiciones dentro del array y devuelve uno nuevo.
       // Copiar el array para no modificar el original
-      const newArray = array.slice();
-      
+      const newArray = array.slice(); 
       // Implementación del algoritmo de Fisher-Yates
       for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-      
+      } 
       return newArray;
     }
     
-
-
     function GenerarArrayDeKeys(array) {
       //Devuelve un array de kay con la cantidad repetida de cada key acorde a lo solicitado.
       //luego las mezcla de forma aleatoria
-
       const arrayDeKeys=array.map(element => element.key);
       //los const son la keys
       let nuevoArray = [];
-      
       const cantidadBoton1 = 9; // Repetir boton2 9 veces
       for (let i = 0; i < cantidadBoton1; i++) {
         nuevoArray.push(arrayDeKeys[0]);
       }
-      
-      
+       
       const cantidadBoton2 =4; // Repetir boton2 4 veces
       for (let i = 0; i < cantidadBoton2; i++) {
         nuevoArray.push(arrayDeKeys[1]);
       }
       
-    
       const cantidadBoton3 = 9; // Repetir boton3 9 veces
       for (let i = 0; i < cantidadBoton3; i++) {
         nuevoArray.push(arrayDeKeys[2]);
       }
-      
       nuevoArray = MezclarArray(nuevoArray); //mezcla las posiciones del array
-      
       return nuevoArray;
     }
 
 
     function ReducirArray(array, numItems){ // reduce el tamaño del array a la cantidad solicitada
-
       const arrayReducido=array.slice(0,numItems);
-
       return arrayReducido;
     }
 
@@ -367,12 +354,8 @@ export function RouletteFunctionsProvider({children}) {
     function NuevoArrayDeInventario(array){
 
       let arraydeKeys=[]
-
       arraydeKeys= GenerarArrayDeKeys(array);
-      
       arraydeKeys= ReducirArray(arraydeKeys,9);
-      
-
       console.log(arraydeKeys);
 
     };
@@ -382,7 +365,7 @@ export function RouletteFunctionsProvider({children}) {
 
     function Loadchamber() { //carga de camara de escopeta con balas.
     
-      const balasRandomTotal = GenerarNumeroRandom(2, 8);
+      const balasRandomTotal = GenerarNumeroRandom(2, 8); //numero de balas aleatoria
      
       let redBullets, blueBullets;
       let newBullets;
@@ -401,7 +384,7 @@ export function RouletteFunctionsProvider({children}) {
               newBullets[randomIndex] = 'red';
           }
        
-          // Verifica si hay cuatro balas consecutivas del mismo color
+          // Verifica si hay cuatro balas consecutivas del mismo color vuelve a mezclar
       } while (CuatroConsecutivosIguales(newBullets) || redBullets === 0 || blueBullets === 0);
     
       redBullets=ContarRepeticiones(newBullets,'red');
