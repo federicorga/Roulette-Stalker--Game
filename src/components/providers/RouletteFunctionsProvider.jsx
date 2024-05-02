@@ -91,7 +91,7 @@ export function RouletteFunctionsProvider({children}) {
             bulletsRender.push('/img/weapon/bullets/Blue_Bullet.png');
           }
         });
-        console.log(bulletsRender.length);
+    
         
         bulletsRender=MezclarArray(bulletsRender);
       
@@ -120,11 +120,11 @@ export function RouletteFunctionsProvider({children}) {
     
       function ShowToastMessage2 (text = "null", backgroundColor = "var(--clr-color2)",imageUrl = "", colorText = "white", time = 1200, )  {
         toast(({ closeToast }) => (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-evenly' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent:'center' }}>
             <div style={{  textAlign: 'center' }}>
               <p>{text}</p>
             </div>
-            <div style={{  textAlign: 'center' }}>
+            <div style={{  textAlign: 'center', marginLeft: '10px' }}>
               {imageUrl && <img src={imageUrl} alt="Toast" style={{ maxWidth: '50px', maxHeight: '50px' }} />}
             </div>
     
@@ -190,7 +190,7 @@ export function RouletteFunctionsProvider({children}) {
       // Actualiza el estado de la bala actual
       setBalaActual(newBullets[0]);
     
-    console.log(newBullets);
+ 
     }
     
     function ReloadInventory() {
@@ -237,9 +237,7 @@ export function RouletteFunctionsProvider({children}) {
     
       function Shoot (shooter, target) {
         const bullet = bullets.shift();
-        console.log(bullets)
-        console.log(`bala disparada: ${bullet}`)
-  
+
  
         if (shooter === target) { // El jugador se dispara a sí mismo
           if (bullet === 'red') { // Si la bala es roja, el jugador recibe daño y cambia de turno
@@ -398,7 +396,24 @@ export function RouletteFunctionsProvider({children}) {
       
       setDangerousBullets(redBullets); // Actualiza el estado de balas peligrosas
       setSafeBullets(blueBullets); // Actualiza el estado de balas no peligrosas
-   
+
+      let textred="";
+      let textblue="";
+
+      if(redBullets===1){
+        textred='bala roja'
+      }else{
+        textred='balas rojas'
+      }
+
+      if (blueBullets===1){
+        textblue='bala azul'
+      }else{
+        textblue='balas azules'
+      }
+
+      
+      ShowToastMessage2(`${redBullets} ${textred}. ${blueBullets} ${textblue}`,'black',null,'white',2500)
       ToggleBulletsVisibility();
 
     

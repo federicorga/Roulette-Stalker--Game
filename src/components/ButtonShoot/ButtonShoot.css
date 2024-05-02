@@ -43,13 +43,13 @@
     background-color: #ee991a;
     background-blend-mode: multiply;
     background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg);
-    padding: 16px 32px;
+    padding: 13px 25px;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transform: translateY(-4px);
     transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 

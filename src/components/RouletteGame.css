@@ -1,5 +1,11 @@
 
 
+.player-turn{
+    box-shadow: 0px 0px 5px 5px rgb(214 132 21 / 27%);
+    transition: 0.9s;
+  
+}
+
 .conent-rouletteGame{
     position: absolute;
     width: 100%;
@@ -43,7 +49,7 @@
 
 .content-weapon-buttons-shoot{
     
-    height: 300px;
+    height: 263px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,5 +208,23 @@ transition: 0.2s !important;
 }
 
 
+.content-the-buttons-shot{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 47px;
+    justify-content: space-around;
+}
 
 
+/* imagen weapon  animacion*/
+
+.rotateimage {
+    transition: 0.9s;
+    transform: rotate(-145deg);
+}
+
+.rotateimage-invert{
+    transition: 0.9s;
+    transform: scaleX(-1) scale(1)  rotate(-145deg);
+}

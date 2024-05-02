@@ -145,7 +145,7 @@ const RouletteGame = () => {
 
   }, [balaActual]); // Este efecto se ejecutará cuando el estado de la bala actual cambie
 
-  
+  const [rotateWeapon, setRotateWeapon] = useState(false);
 
   function ReloadGame(){ 
 
@@ -165,6 +165,11 @@ function playGame(){
 
   ReloadInventory();
   
+}
+
+function Aplyshoot(shooter, target){
+  setRotateWeapon(false)
+  Shoot(shooter, target);
 }
 
 
@@ -213,11 +218,8 @@ function playGame(){
             
           
           <div className='stadistic-info'>
-          <p className='turnoplayer'>Turno de {turn === 'player1' ? jugador1 : jugador2}</p>
-              <p>Balas totales: {totalBullets}</p>{/*Balas totales en el arma*/}
-              <p>Balas restantes: {bullets.length}</p>{/*Balas en la recamara de la escopeta restantes*/ }
-             <p>Balas peligrosas: {dangerousBullets}</p> {/* Muestra el total de balas peligrosas */}
-              <p>Balas no peligrosas: {safebullets}</p> {/* Calcula el total de balas no peligrosas */}
+          {/*<p className='turnoplayer'>Turno de {turn === 'player1' ? jugador1 : jugador2}</p>*/}
+      
             </div> 
            
             </div>
@@ -248,9 +250,11 @@ function playGame(){
           <section className='content-info-rulet'>
       
           <section className='content-UserBoxInfo-Inventori'>
-            <div>
+          
+            <div className={turn==='player1'?"player-turn":""}>
               <UserBoxInfo factionUser={player1Faction} NameUser={jugador1} LifeUser={player1Health} imgUser={fotoSeleccionadaProfile} backgroundImage={fotoSeleccionadaFaction} />
               </div>
+              
               <div>
               {bullets.length===0?(""):(   
            <Inventory
@@ -270,20 +274,38 @@ function playGame(){
       
              {turn === 'player1' ? (
              
-                <div className='content-weapon-buttons-shoot'>  
-                  {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}  className='button-item' onClick={() => Shoot('player1', 'player2')}></ButtonShoot>)}
-                  <div className='content-weapon-RouletteGame' >
-                  <img   className='img-weapon-static' src="/img/weapon/1.png" alt="weapon"  onClick={HandleButtonsFire} /> {/* Agrega el manejador de clics en la imagen */}
+                <div className='content-weapon-buttons-shoot'>
+                  <div className='content-the-buttons-shot'>
+                  <div className='content-botonshotB'
+                  onMouseEnter={() => setRotateWeapon(true)}
+                  onMouseLeave={() => setRotateWeapon(false)}>
+                  {showButtonsFire &&(<ButtonShoot text={`Dispararme`}   className='button-item' onClick={() => Aplyshoot('player1', 'player1')}></ButtonShoot>)}
+                  </div> 
+                  <div className='content-botonshotA'> 
+                  {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}     className='button-item' onClick={() => Shoot('player1', 'player2')}></ButtonShoot>)}
                   </div>
-                  {showButtonsFire &&(<ButtonShoot text={`Dispararme`} className='button-item' onClick={() => Shoot('player1', 'player1')}></ButtonShoot>)}
+                  </div>
+                  <div className='content-weapon-RouletteGame' >
+                  <img   className={rotateWeapon?'img-weapon-static rotateimage': 'img-weapon-static'} src="/img/weapon/1.png" alt="weapon"  onClick={HandleButtonsFire} /> {/* Agrega el manejador de clics en la imagen */}
+                  </div>
+                  
                 </div>
                 ) : (
                 <div className='content-weapon-buttons-shoot'>
-                {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`} className='button-item' onClick={() => Shoot('player2', 'player1')}></ButtonShoot>)}
-                <div className='content-weapon-RouletteGame'>
-                <img className='img-weapon-static-invert' src="/img/weapon/1.png" alt="weapon" onClick={HandleButtonsFire} />
+                   <div className='content-the-buttons-shot'>
+                <div className='content-botonshotA'> 
+                {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`}  className='button-item' onClick={() => Shoot('player2', 'player1')}></ButtonShoot>)}
                 </div>
-                {showButtonsFire &&(<ButtonShoot text={`Dispararme`} className='button-item' onClick={() => Shoot('player2', 'player2')}></ButtonShoot>)}
+                <div className='content-botonshotB'
+                  onMouseEnter={() => setRotateWeapon(true)}
+                  onMouseLeave={() => setRotateWeapon(false)}>
+                {showButtonsFire &&(<ButtonShoot text={`Dispararme`} className='button-item' onClick={() => Aplyshoot('player2', 'player2')}></ButtonShoot>)}
+                </div>
+                </div>
+                <div className='content-weapon-RouletteGame'>
+                <img className={rotateWeapon?'img-weapon-static-invert rotateimage-invert':'img-weapon-static-invert'} src="/img/weapon/1.png" alt="weapon" onClick={HandleButtonsFire} />
+                </div>
+                
                 </div>           
               )} 
             </>
@@ -291,7 +313,7 @@ function playGame(){
          </div>
 
          <section className='content-UserBoxInfo-Inventori'>
-              <div>
+              <div className={turn==='player2'?"player-turn":""}>
               <UserBoxInfo invert={true} NameUser={jugador2} LifeUser={player2Health} factionUser={player2Faction} imgUser={fotoSeleccionadaProfile2}  backgroundImage={fotoSeleccionadaFaction2} />
               </div>
             <div>

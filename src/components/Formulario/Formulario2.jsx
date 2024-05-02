@@ -14,7 +14,7 @@ const Galeria = ({ imagenes, onSelect }) => {
     };
   
     return (
-      <div className="galeria">
+      <div className="galeria-invert">
         {imagenes.map((imagen, index) => (
           <img
             className={`imagenforselect ${imagen === imagenSeleccionada ? 'seleccionada' : ''}`}

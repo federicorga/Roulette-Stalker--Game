@@ -2,9 +2,9 @@
 import './ButtonShoot.css';
 
 
-function ButtonShoot({text,onClick}) {
+function ButtonShoot({text,onClick, animatonEspClass=""}) {
   return (
-<button  className="pushable" onClick={onClick}>
+<button  className={`pushable ${animatonEspClass}`} onClick={onClick}>
   <span className="shadow"></span>
   <span className="edge"></span>
   <span className="front">
