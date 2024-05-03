@@ -81,20 +81,23 @@ export function RouletteFunctionsProvider({children}) {
 
       function Renderbullets(arraybullets = []) {
         let bulletsRender = [];
-      
-        // Itera sobre el array de balas
+        let redBullets = [];
+        let blueBullets = [];
+
+        // Itera sobre el array de balas y separa las rojas y azules
         arraybullets.forEach(bullet => {
-          // Verifica el color de la bala y agrega la ruta de la imagen correspondiente al array de balas renderizadas
           if (bullet === 'red') {
-            bulletsRender.push('/img/weapon/bullets/Red_Bullet.png');
+            redBullets.push('/img/weapon/bullets/Red_Bullet.png');
           } else {
-            bulletsRender.push('/img/weapon/bullets/Blue_Bullet.png');
+            blueBullets.push('/img/weapon/bullets/Blue_Bullet.png');
           }
         });
-    
-        
-        bulletsRender=MezclarArray(bulletsRender);
-      
+
+        // Concatena primero las balas rojas y luego las azules
+        bulletsRender = blueBullets.concat(redBullets);
+
+       
+
         setBulletsArrayRender(bulletsRender);
       };
     

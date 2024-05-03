@@ -213,18 +213,8 @@ function Aplyshoot(shooter, target){
       ) : (
         <div>
          
-          <div className='content-staditst-button-reaload'>
-          <button disabled={bullets.length !== 0} style={{ opacity: bullets.length !== 0 ? 0.5 : 1 }} title='recargar escopeta' className='button-initial-game-reload' onClick={()=>playGame()}><img src='/img/reloadop1.png'></img></button>
-            
-          
-          <div className='stadistic-info'>
-          {/*<p className='turnoplayer'>Turno de {turn === 'player1' ? jugador1 : jugador2}</p>*/}
-      
-            </div> 
-           
-            </div>
-            <div>
-            
+            <div className='content-bullets-and-button-reload'>
+             <button disabled={bullets.length !== 0} style={{ opacity: bullets.length !== 0 ? 0.5 : 1 }} title='recargar escopeta' className='button-initial-game-reload' onClick={()=>playGame()}><img src='/img/reloadop1.png'></img></button>
               <section className='content-boxUserInfo-RouletteGame'>
               <div className='backgorund-content-box-bullets'> 
               <div className={`Arraybullets-img-container ${showBoxBulletsClass}`}>
@@ -276,12 +266,12 @@ function Aplyshoot(shooter, target){
              
                 <div className='content-weapon-buttons-shoot'>
                   <div className='content-the-buttons-shot'>
-                  <div className='content-botonshotB'
+                  <div className='content-botonshotA'
                   onMouseEnter={() => setRotateWeapon(true)}
                   onMouseLeave={() => setRotateWeapon(false)}>
                   {showButtonsFire &&(<ButtonShoot text={`Dispararme`}   className='button-item' onClick={() => Aplyshoot('player1', 'player1')}></ButtonShoot>)}
                   </div> 
-                  <div className='content-botonshotA'> 
+                  <div className='content-botonshotB'> 
                   {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}     className='button-item' onClick={() => Shoot('player1', 'player2')}></ButtonShoot>)}
                   </div>
                   </div>
@@ -293,10 +283,10 @@ function Aplyshoot(shooter, target){
                 ) : (
                 <div className='content-weapon-buttons-shoot'>
                    <div className='content-the-buttons-shot'>
-                <div className='content-botonshotA'> 
+                <div className='content-botonshotA-invert'> 
                 {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`}  className='button-item' onClick={() => Shoot('player2', 'player1')}></ButtonShoot>)}
                 </div>
-                <div className='content-botonshotB'
+                <div className='content-botonshotB-invert'
                   onMouseEnter={() => setRotateWeapon(true)}
                   onMouseLeave={() => setRotateWeapon(false)}>
                 {showButtonsFire &&(<ButtonShoot text={`Dispararme`} className='button-item' onClick={() => Aplyshoot('player2', 'player2')}></ButtonShoot>)}
