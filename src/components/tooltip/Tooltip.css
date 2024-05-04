@@ -1,0 +1,44 @@
+.tooltip-container {
+ 
+    position: relative;
+
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%) rotateX(90deg);
+    padding: 0.6em;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+    background: transparent;
+    height: 0px;
+    cursor: default;
+  }
+  
+  .tooltip-visible .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    background: none;
+    transform: translateX(-50%) rotateX(0deg);
+  }
+  
+
+  .content-text-tooltip
+  {
+    display: flex;
+    width: 236px;
+    background: black;
+    border-radius: 5px;
+    text-align: center;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+  
+
+
+  .content-text-tooltip{
+    font-size: 1rem;
+  }

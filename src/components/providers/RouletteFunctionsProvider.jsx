@@ -56,6 +56,7 @@ export function RouletteFunctionsProvider({children}) {
   const [showBulletsClass, setShowBulletsClass] = useState('');
   const [numRandom,setNumRandom]=useState(0); // numero random que se usa par el inventario.
   const [playGame, setPlayGame]=useState(false);
+  const [tolltipBulletsVis, setTolltipBulletsVis]=useState(false); //visibilidad de la cantidad de valas
 
 
     function ToggleBulletsVisibility() {
@@ -64,11 +65,13 @@ export function RouletteFunctionsProvider({children}) {
         setShowBoxBulletsClass('invertY');
     
         setShowBulletsClass('mostrarbala');
-    
+
+        setTolltipBulletsVis(true);
         // Quita la clase 'invertY' después de 6 segundos (1 segundo de carga + 5 segundos de visibilidad)
         const hideTimer = setTimeout(() => {
           setShowBoxBulletsClass('invertY2');
           setShowBulletsClass('ocultarbalas');
+          setTolltipBulletsVis(false);
     
         }, 4000);
     
@@ -160,9 +163,9 @@ export function RouletteFunctionsProvider({children}) {
     function VerBala(){
      
       if(balaActual==='red'){
-      ShowToastMessage2(`Bala en recamara: ${balaActual}`,'red','/img/weapon/bullets/Red_Bullet.png');
+      ShowToastMessage2(`Bala en recamara: real`,'red','/img/weapon/bullets/Red_Bullet.png');
     }else{
-      ShowToastMessage2(`Bala en recamara: ${balaActual}`,'blue','/img/weapon/bullets/Blue_Bullet.png');
+      ShowToastMessage2(`Bala en recamara: de salva`,'blue','/img/weapon/bullets/Blue_Bullet.png');
     }
     }
     
@@ -182,9 +185,9 @@ export function RouletteFunctionsProvider({children}) {
     
       //alert(`quitaste una bala: ${newBullets[0]} del arma`);
       if(newBullets[0]==='blue'){
-      ShowToastMessage2(`Quitaste una bala ${newBullets[0]} del arma`,'blue','/img/weapon/bullets/Blue_Bullet.png');
+      ShowToastMessage2(`Quitaste una bala de salva del arma`,'blue','/img/weapon/bullets/Blue_Bullet.png');
     }else{
-      ShowToastMessage2(`Quitaste una bala ${newBullets[0]} del arma`,'red','/img/weapon/bullets/Red_Bullet.png');
+      ShowToastMessage2(`Quitaste una bala real del arma`,'red','/img/weapon/bullets/Red_Bullet.png');
     }
         // Elimina el primer elemento del array de balas
       newBullets.shift();
@@ -415,8 +418,7 @@ export function RouletteFunctionsProvider({children}) {
         textblue='balas azules'
       }
 
-      
-      ShowToastMessage2(`${redBullets} ${textred}. ${blueBullets} ${textblue}`,'black',null,'white',2500)
+    
       ToggleBulletsVisibility();
 
     
@@ -504,6 +506,7 @@ export function RouletteFunctionsProvider({children}) {
       showBulletsClass, 
       setShowBulletsClass,
       numRandom,
+      tolltipBulletsVis,
     
 
 

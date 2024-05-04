@@ -5,6 +5,7 @@ import Inventory from './Inventory/Inventory';
 import UserBoxInfo from './UserBoxInfo/UserBoxInfo';
 import { useRouletteFunctionsContext } from './providers/RouletteFunctionsProvider';
 import { Link } from 'react-router-dom';
+import Tooltip from './tooltip/Tooltip';
 
 
 
@@ -110,6 +111,7 @@ const RouletteGame = () => {
     ReloadButton,
     ActionAndAudio,
     NuevoArrayDeInventario,
+    tolltipBulletsVis
   
   
   } = useRouletteFunctionsContext();
@@ -146,6 +148,8 @@ const RouletteGame = () => {
   }, [balaActual]); // Este efecto se ejecutará cuando el estado de la bala actual cambie
 
   const [rotateWeapon, setRotateWeapon] = useState(false);
+  const [rotateWeapon2, setRotateWeapon2] = useState(false);
+
 
   function ReloadGame(){ 
 
@@ -164,11 +168,16 @@ function playGame(){
 
 
   ReloadInventory();
+
+  
   
 }
 
 function Aplyshoot(shooter, target){
-  setRotateWeapon(false)
+
+  setRotateWeapon(false);
+  setRotateWeapon2(false);
+
   Shoot(shooter, target);
 }
 
@@ -211,14 +220,16 @@ function Aplyshoot(shooter, target){
         </div>
         
       ) : (
-        <div>
+        <div >
          
-            <div className='content-bullets-and-button-reload'>
+            <div className='  content-bullets-and-button-reload'>
              <button disabled={bullets.length !== 0} style={{ opacity: bullets.length !== 0 ? 0.5 : 1 }} title='recargar escopeta' className='button-initial-game-reload' onClick={()=>playGame()}><img src='/img/reloadop1.png'></img></button>
-              <section className='content-boxUserInfo-RouletteGame'>
-              <div className='backgorund-content-box-bullets'> 
-              <div className={`Arraybullets-img-container ${showBoxBulletsClass}`}>
-              <div className={`contentall-arrabullets-img `}>
+              <section className='  content-boxUserInfo-RouletteGame'>
+              <div className={`tooltip-container backgorund-content-box-bullets ${tolltipBulletsVis?'tooltip-visible':''} `}> 
+              <Tooltip balablue={safebullets} balared={dangerousBullets} ></Tooltip>
+              <div className={` Arraybullets-img-container ${showBoxBulletsClass}`}>
+              
+              <div className={`contentall-arrabullets-img`}>
               {bulletsArrayRender && bulletsArrayRender.map((rutaImagen, index) => (
           <div key={index} className={`content-onebullet-img ${showBulletsClass}`}>
               <img src={rutaImagen} alt={`Bala ${index}`} width={'19px'} />
@@ -271,20 +282,26 @@ function Aplyshoot(shooter, target){
                   onMouseLeave={() => setRotateWeapon(false)}>
                   {showButtonsFire &&(<ButtonShoot text={`Dispararme`}   className='button-item' onClick={() => Aplyshoot('player1', 'player1')}></ButtonShoot>)}
                   </div> 
-                  <div className='content-botonshotB'> 
-                  {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}     className='button-item' onClick={() => Shoot('player1', 'player2')}></ButtonShoot>)}
+                  <div className='content-botonshotB'
+                  onMouseEnter={() => setRotateWeapon2(true)}
+                  onMouseLeave={() => setRotateWeapon2(false)}>
+                  {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}     className='button-item' onClick={() => Aplyshoot('player1', 'player2')}></ButtonShoot>)}
                   </div>
                   </div>
                   <div className='content-weapon-RouletteGame' >
-                  <img   className={rotateWeapon?'img-weapon-static rotateimage': 'img-weapon-static'} src="/img/weapon/1.png" alt="weapon"  onClick={HandleButtonsFire} /> {/* Agrega el manejador de clics en la imagen */}
+                    <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
+                  <img   className={  `img-weapon-static ${rotateWeapon ? 'rotateimage' : ''}${rotateWeapon2 ? 'aim-enemy':''}`} src="/img/weapon/1.png" alt="weapon"  onClick={HandleButtonsFire} /> {/* Agrega el manejador de clics en la imagen */}
+                  </div>
                   </div>
                   
                 </div>
                 ) : (
                 <div className='content-weapon-buttons-shoot'>
                    <div className='content-the-buttons-shot'>
-                <div className='content-botonshotA-invert'> 
-                {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`}  className='button-item' onClick={() => Shoot('player2', 'player1')}></ButtonShoot>)}
+                <div className='content-botonshotA-invert'
+                onMouseEnter={() => setRotateWeapon2(true)}
+                onMouseLeave={() => setRotateWeapon2(false)}>
+                {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`}  className='button-item' onClick={() => Aplyshoot('player2', 'player1')}></ButtonShoot>)}
                 </div>
                 <div className='content-botonshotB-invert'
                   onMouseEnter={() => setRotateWeapon(true)}
@@ -293,7 +310,9 @@ function Aplyshoot(shooter, target){
                 </div>
                 </div>
                 <div className='content-weapon-RouletteGame'>
-                <img className={rotateWeapon?'img-weapon-static-invert rotateimage-invert':'img-weapon-static-invert'} src="/img/weapon/1.png" alt="weapon" onClick={HandleButtonsFire} />
+                <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
+                <img className={`img-weapon-static-invert ${rotateWeapon ? 'rotateimage-invert ' : ''}${rotateWeapon2 ? 'aim-enemy-invert':''}` } src="/img/weapon/1.png" alt="weapon" onClick={HandleButtonsFire} />
+                </div>
                 </div>
                 
                 </div>           

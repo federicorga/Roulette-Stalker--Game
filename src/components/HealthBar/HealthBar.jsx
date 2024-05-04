@@ -1,9 +1,10 @@
+
 import React from 'react';
 import './HealthBar.css'; // Archivo CSS para estilos
 
 const HealthBar = ({ playerHealth }) => {
   const maxHealth = 6; // Valor máximo de la barra de vida
-  const healthPercentage = (playerHealth / maxHealth) * 100; // Calcular el porcentaje de vida
+  const healthBars = [];
 
   let progressBarColor = 'green'; // Por defecto, el color es verde
   if (playerHealth === 1) {
@@ -11,9 +12,20 @@ const HealthBar = ({ playerHealth }) => {
   } else if (playerHealth === 2) {
     progressBarColor = 'yellow'; // Cuando la salud sea 2, el color es amarillo
   }
+
+  // Crear las barras de vida individuales basadas en la salud actual del jugador
+  for (let i = 0; i < maxHealth; i++) {
+    const isVisible = i < playerHealth; // Determinar si la barra actual debe ser visible
+    const barStyle = {
+      visibility: isVisible ? 'visible' : 'hidden', // Establecer la visibilidad de la barra
+      backgroundColor: progressBarColor
+    };
+    healthBars.push(<div key={i} className="health-bar-segment" style={barStyle}></div>);
+  }
+
   return (
-    <div className="health-bar">
-      <div className="health-progress" style={{ width: `${healthPercentage}%`, backgroundColor: progressBarColor }} ></div>
+    <div className="health-bars-container ">
+      {healthBars}
     </div>
   );
 };
