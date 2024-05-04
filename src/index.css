@@ -221,3 +221,103 @@ display: flex;
     left: 50%;
     transform: translateX(-50%);
     justify-content: center;}
+
+
+
+
+    @media screen and (min-width: 812px) and (min-height: 375px) {
+
+
+      h1{
+        display: none;
+      }
+
+      .pushable{
+        z-index: 55;
+      }
+
+      .conent-rouletteGame{
+        width: 100%;
+      }
+
+      .content-all-UserBoxInfo{
+        width: 259px;
+        height: 77px;
+      }
+
+      .content-all-UserBoxInfo-invert{
+        width: 259px;
+        height: 77px;
+      }
+      .img-UserBoxInfo{
+        height: 53%;
+      }
+
+
+      .content-weapon-buttons-shoot{
+        position: static;
+      }
+
+      .main_back_inventory{
+        width: 8em;
+        height: 7em;
+      }
+
+      .box_inventory{
+        width: 40px;
+        height: 40px;
+      }
+
+      .img-weapon-static{
+        width: 100%;
+      }
+      .img-weapon-static-invert{
+        width: 100%;
+      }
+
+      .content-weapon{
+        width: 150px;
+      }
+
+      .content-botonshotB{
+        width: 105px;
+        left: 83px;
+      }
+
+      .img-UserBoxInfo img{
+        height: 100%;
+        width: 100%;
+      }
+
+      .content-botonshotA-invert{
+        width: 105px;
+        right: 83px;
+      }
+      .front{
+        font-size: 0.6rem;
+      }
+
+      .nameUser-UserBoxInfo{
+        font-size: 0.9rem;
+      }
+
+      .factionUser-UserBoxInfo{
+        font-size: 0.6rem;
+      }
+
+      .factionUser-UserBoxInfo-invert{
+        font-size: 0.6rem;
+      }
+
+      .main_inventory {
+        display: flex;
+        flex-wrap: wrap;
+        width: 14em;
+        align-items: center;
+        z-index: -1;
+        flex-direction: row;
+    }
+    .main_inventory:hover{
+      width: 11rem;
+    }
+  }
