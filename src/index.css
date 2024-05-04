@@ -320,4 +320,8 @@ display: flex;
     .main_inventory:hover{
       width: 11rem;
     }
+
+    .content-the-buttons-shot{
+      height: auto;
+    }
   }
