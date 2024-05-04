@@ -5,7 +5,7 @@ import Inventory from './Inventory/Inventory';
 import UserBoxInfo from './UserBoxInfo/UserBoxInfo';
 import { useRouletteFunctionsContext } from './providers/RouletteFunctionsProvider';
 import { Link } from 'react-router-dom';
-import Tooltip from './tooltip/Tooltip';
+import TooltipBullets from './ToolsTips/TooltipBullets';
 
 
 
@@ -101,7 +101,7 @@ const RouletteGame = () => {
     GenerarNumeroRandom,
     Loadchamber,
     VerBala,
-    CigarrilloDeVida,
+    Lifekit,
     SaltarBala,
     ReloadInventory,
     CuatroConsecutivosIguales,
@@ -226,7 +226,7 @@ function Aplyshoot(shooter, target){
              <button disabled={bullets.length !== 0} style={{ opacity: bullets.length !== 0 ? 0.5 : 1 }} title='recargar escopeta' className='button-initial-game-reload' onClick={()=>playGame()}><img src='/img/reloadop1.png'></img></button>
               <section className='  content-boxUserInfo-RouletteGame'>
               <div className={`tooltip-container backgorund-content-box-bullets ${tolltipBulletsVis?'tooltip-visible':''} `}> 
-              <Tooltip balablue={safebullets} balared={dangerousBullets} ></Tooltip>
+              <TooltipBullets bulletBlue={safebullets} bulletRed={dangerousBullets} ></TooltipBullets>
               <div className={` Arraybullets-img-container ${showBoxBulletsClass}`}>
               
               <div className={`contentall-arrabullets-img`}>

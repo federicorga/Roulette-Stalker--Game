@@ -169,7 +169,7 @@ export function RouletteFunctionsProvider({children}) {
     }
     }
     
-    function CigarrilloDeVida(player){ //da una vida al jugador seleccionado
+    function Lifekit(player){ //da una vida al jugador seleccionado
       //player es el jugador actual activo
       if(player===jugador1 && player1Health<6){setPlayer1Health(prevHealth => prevHealth + 1)}
       
@@ -201,7 +201,7 @@ export function RouletteFunctionsProvider({children}) {
     
     function ReloadInventory() {
   
-      setNumRandom(GenerarNumeroRandom(0,5));
+      setNumRandom(GenerarNumeroRandom(0,9));
       Loadchamber();
     };
     
@@ -258,7 +258,7 @@ export function RouletteFunctionsProvider({children}) {
           if (bullet === 'red') { // Si la bala es roja, el otro jugador recibe daño
             target === 'player1' ? ActionAndAudio(setPlayer1Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga') : ActionAndAudio(setPlayer2Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga');
              ShowToastMessage2(`¡Le hiciste daño a : ${target === 'player1' ? jugador1 : jugador2} !`,'red','/img/weapon/bullets/Red_Bullet.png');
-          } else { // Si la bala es azul, no ocurre ningún daño
+          } else { // Si la bala es azul, no ocurre ningún daño al otro jugador
             ActionAndAudio("",'Escopeta/failshoot',1,'Escopeta/saltabala_masrecarga');
              ShowToastMessage2(`¡No hiciste daño a : ${target === 'player1' ? jugador1 : jugador2}`,'blue','/img/weapon/bullets/Blue_Bullet.png');
           }
@@ -521,7 +521,7 @@ export function RouletteFunctionsProvider({children}) {
         GenerarNumeroRandom,
         Loadchamber,
         VerBala,
-        CigarrilloDeVida,
+        Lifekit,
         SaltarBala,
         ReloadInventory,
         CuatroConsecutivosIguales,

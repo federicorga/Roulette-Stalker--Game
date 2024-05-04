@@ -1,18 +1,18 @@
 import React from 'react';
-import './Tooltip.css'
+import './TooltipBullets.css'
 
-const Tooltip = ({ balablue,balared}) => {
+const TooltipBullets = ({ bulletBlue,bulletRed}) => {
 
     let textred='';
     let textblue='';
     
-    if(balared===1){
+    if(bulletRed===1){
          textred='bala real'
     }else{
          textred='balas reales'
     }
 
-    if(balablue===1){
+    if(bulletBlue===1){
         textblue='bala de salva'
     }else{
         textblue= 'balas de salva'
@@ -24,7 +24,7 @@ const Tooltip = ({ balablue,balared}) => {
 
         <div className='content-text-tooltip'>
        
-            <p fill="white">{`${balablue} ${textblue} | ${balared} ${textred}`}</p>
+            <p fill="white">{`${bulletBlue} ${textblue} | ${bulletRed} ${textred}`}</p>
           
             </div>
        
@@ -33,4 +33,4 @@ const Tooltip = ({ balablue,balared}) => {
   );
 };
 
-export default Tooltip;
+export default TooltipBullets;

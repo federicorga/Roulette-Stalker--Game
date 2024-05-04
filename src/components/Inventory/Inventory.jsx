@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Inventory.css';
 
-import CigaretLife from '../ButtonsItems/CigaretLife';
+import KitHealth from '../ButtonsItems/KitHealth';
 import DodgeBullet from '../ButtonsItems/DodgeBullet';
 import ShowBullet from '../ButtonsItems/ShowBullet';
 import { useRouletteFunctionsContext } from '../providers/RouletteFunctionsProvider';
@@ -42,10 +42,10 @@ const{
 }=useRouletteFunctionsContext();
 
 const newBotone= [
-<CigaretLife></CigaretLife>,
-<CigaretLife></CigaretLife>,
-<CigaretLife></CigaretLife>,
-<CigaretLife></CigaretLife>,
+<KitHealth></KitHealth>,
+<KitHealth></KitHealth>,
+<KitHealth></KitHealth>,
+<KitHealth></KitHealth>,
 <DodgeBullet></DodgeBullet>,
 <ShowBullet></ShowBullet>,
 <DodgeBullet></DodgeBullet>,
