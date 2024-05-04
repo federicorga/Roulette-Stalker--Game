@@ -15,11 +15,11 @@ function CigaretLife() {
 
   return (
     <div  key="boton2"
-    data-tooltip="Cigarrillo: Da +1 de vida al jugador"
+    data-tooltip="Vendas: restaura +1 de vida al jugador"
     className='button-item ocult_item_inventory'
-    onClick={() => { ActionAndAudio(CigarrilloDeVida(turn === 'player1' ? jugador1 : jugador2), 'itemsAudio/Cigarrette') }}
+    onClick={() => { ActionAndAudio(CigarrilloDeVida(turn === 'player1' ? jugador1 : jugador2), 'itemsAudio/bandage_use') }}
   >
-    <img src='/img/stalkeritems/cigarette.png' width={37} alt="Cigarette Icon" />
+    <img src='/img/stalkeritems/Healt.png' width={37} alt="Healt Icon" />
       
     </div>
   );

@@ -175,7 +175,7 @@ export function RouletteFunctionsProvider({children}) {
       
       if(player===jugador2 && player2Health <6)setPlayer2Health(prevHealth => prevHealth + 1)
     
-      ShowToastMessage(`jugador: ${player} se agrego 1 de vida`,'green');
+      ShowToastMessage(`${player} se curo + 1 de vida`,'green');
     
       }
     
