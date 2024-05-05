@@ -332,4 +332,12 @@ display: flex;
     .content-weapon-RouletteGame{
       height: auto;
     }
+
+    .contentall-arrabullets-img{
+      height: 40px;
+    }
+
+    .button-initial-game-reload{
+      width: 50px;
+    }
   }
