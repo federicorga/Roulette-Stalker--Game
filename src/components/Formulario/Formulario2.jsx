@@ -160,6 +160,7 @@ const Formulario2 = () => {
         <input className='input-form'
           type="text"
           value={nombre2}
+          maxLength={8}
           onChange={(e) => setNombre2(e.target.value)}
           required
         />

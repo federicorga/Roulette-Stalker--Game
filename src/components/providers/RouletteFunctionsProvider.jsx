@@ -124,14 +124,14 @@ export function RouletteFunctionsProvider({children}) {
       };
     
     
-      function ShowToastMessage2 (text = "null", backgroundColor = "var(--clr-color2)",imageUrl = "", colorText = "white", time = 1200, )  {
+      function ShowToastMessage2 (text = "null", backgroundColor = "var(--clr-color2)",imageUrl = "", colorText = "white" , time = 1200,widthImg='50px' )  {
         toast(({ closeToast }) => (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent:'center' }}>
             <div style={{  textAlign: 'center' }}>
               <p>{text}</p>
             </div>
             <div style={{  textAlign: 'center', marginLeft: '10px' }}>
-              {imageUrl && <img src={imageUrl} alt="Toast" style={{ maxWidth: '50px', maxHeight: '50px' }} />}
+              {imageUrl && <img src={imageUrl} alt="Toast" style={{ maxWidth: {widthImg}, maxHeight: '50px' }} />}
             </div>
     
           </div>
@@ -248,7 +248,7 @@ export function RouletteFunctionsProvider({children}) {
         if (shooter === target) { // El jugador se dispara a sí mismo
           if (bullet === 'red') { // Si la bala es roja, el jugador recibe daño y cambia de turno
             target === 'player1' ? ActionAndAudio(setPlayer1Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga') : ActionAndAudio(setPlayer2Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga');
-             ShowToastMessage2(`¡Te hiciste daño!`,'red','/img/weapon/bullets/Red_Bullet.png');
+             ShowToastMessage2(`¡Te hiciste daño!`,'red','/img/weapon/bullets/shootred.gif','white',1300,'100%');
             setTurn(turn === 'player1' ? 'player2' : 'player1'); // Cambiar turno al otro jugador
           } else { // Si la bala es azul, el jugador puede continuar disparando
             ActionAndAudio("",'Escopeta/failshoot',1,'Escopeta/saltabala_masrecarga');
@@ -257,7 +257,7 @@ export function RouletteFunctionsProvider({children}) {
         } else { // El jugador dispara al otro jugador
           if (bullet === 'red') { // Si la bala es roja, el otro jugador recibe daño
             target === 'player1' ? ActionAndAudio(setPlayer1Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga') : ActionAndAudio(setPlayer2Health(prevHealth => prevHealth - 1),'Escopeta/shoot',1,'Escopeta/saltabala_masrecarga');
-             ShowToastMessage2(`¡Le hiciste daño a : ${target === 'player1' ? jugador1 : jugador2} !`,'red','/img/weapon/bullets/Red_Bullet.png');
+             ShowToastMessage2(`¡Le hiciste daño a : ${target === 'player1' ? jugador1 : jugador2} !`,'red','/img/weapon/bullets/shootred.gif','white',1300,'100%');
           } else { // Si la bala es azul, no ocurre ningún daño al otro jugador
             ActionAndAudio("",'Escopeta/failshoot',1,'Escopeta/saltabala_masrecarga');
              ShowToastMessage2(`¡No hiciste daño a : ${target === 'player1' ? jugador1 : jugador2}`,'blue','/img/weapon/bullets/Blue_Bullet.png');

@@ -115,8 +115,8 @@ background-position-y: -7px;
 
 [data-tooltip]::after {
     content: attr(data-tooltip);
-    background-color: black;
-    color: white;
+    background-color: #1a1e1f;
+    color: #8a8e8f;
     font-size: .75rem;
     padding: .25rem .5rem;
     border: 1px solid gray;
@@ -339,5 +339,9 @@ display: flex;
 
     .button-initial-game-reload{
       width: 50px;
+    }
+    .front-other{
+      width: 84px;
+      height: 37px;
     }
   }

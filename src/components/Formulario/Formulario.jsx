@@ -162,6 +162,7 @@ const Formulario = () => {
         <input className='input-form'
           type="text"
           value={nombre}
+          maxLength={8}
           onChange={(e) => setNombre(e.target.value)}
           required
         />

@@ -3,19 +3,33 @@
   .health-bars-container{
     margin-top: 5px;
     width: 130px;
-    height: 20px;
-    border: 1px solid #333131;
+    height: 22px;
+    border: 1px solid #4e4b4b;
     background-color: #1e1e1e;
     border-radius: 5px;
     display: flex;
   }
 
+
+
   .health-bar-segment{
-    border: 1px solid black;
+     border: 1px solid black;
     width: 20px;
     height: 20px;
-    background-image: url('https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg');
-    background-blend-mode: multiply;
+    background-color: #252424;
     border-radius: 5px;
-    background-color: #4CAF50;
+  
+  }
+
+  .icon-life  {
+    width: 94%;
+    height: 100%;
+
+  
+  }
+
+  .icon-life-invert{
+    width: 94%;
+    height: 100%;
+ 
   }

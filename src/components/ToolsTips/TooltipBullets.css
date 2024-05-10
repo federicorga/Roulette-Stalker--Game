@@ -29,10 +29,11 @@
   {
     display: flex;
     width: 236px;
-    background: black;
+    background: #1a1e1f;
     border-radius: 5px;
     text-align: center;
     height: 60px;
+    color: #8a8e8f;
     justify-content: center;
     align-items: center;
 }

@@ -18,7 +18,7 @@ function UserBoxInfo({
               <h2 className="nameUser-UserBoxInfo">{NameUser}</h2>
               <p className="factionUser-UserBoxInfo-invert">{factionUser}</p>
               <div className="userbox-contenthealtbar-invert">
-              <HealthBar playerHealth={LifeUser}></HealthBar>
+              <HealthBar invertHealthBar={true}  playerHealth={LifeUser}></HealthBar>
               </div>
             </div>
             {imgUser && (
@@ -35,7 +35,7 @@ function UserBoxInfo({
             <h2 className="nameUser-UserBoxInfo">{NameUser}</h2>
             <p className="factionUser-UserBoxInfo">{factionUser}</p>
             <div >
-            <HealthBar playerHealth={LifeUser}></HealthBar>
+            <HealthBar invertHealthBar={false} playerHealth={LifeUser}></HealthBar>
             </div>
           </div>
           {imgUser && (
