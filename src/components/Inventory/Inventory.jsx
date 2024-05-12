@@ -44,8 +44,6 @@ const{
 const newBotone= [
 <KitHealth></KitHealth>,
 <KitHealth></KitHealth>,
-<KitHealth></KitHealth>,
-<KitHealth></KitHealth>,
 <DodgeBullet></DodgeBullet>,
 <ShowBullet></ShowBullet>,
 <DodgeBullet></DodgeBullet>,

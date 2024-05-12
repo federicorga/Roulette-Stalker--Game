@@ -149,7 +149,8 @@ const RouletteGame = () => {
 
   const [rotateWeapon, setRotateWeapon] = useState(false);
   const [rotateWeapon2, setRotateWeapon2] = useState(false);
-
+  const [weaponActive, setWeaponActive] =useState(false);
+  const [weaponActive2, setWeaponActive2] =useState(false);
 
   function ReloadGame(){ 
 
@@ -177,8 +178,16 @@ function Aplyshoot(shooter, target){
 
   setRotateWeapon(false);
   setRotateWeapon2(false);
-
+setWeaponActive(false);
+setWeaponActive2(false);
   Shoot(shooter, target);
+}
+
+function TakeWeapon(){
+  HandleButtonsFire();
+  setWeaponActive(!weaponActive);
+  setWeaponActive2(!weaponActive);
+
 }
 
 
@@ -290,7 +299,7 @@ function Aplyshoot(shooter, target){
                   </div>
                   <div className='content-weapon-RouletteGame' >
                     <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
-                  <img   className={  `img-weapon-static ${rotateWeapon ? 'rotateimage' : ''}${rotateWeapon2 ? 'aim-enemy':''}`} src="/img/weapon/1.png" alt="weapon"  onClick={HandleButtonsFire} /> {/* Agrega el manejador de clics en la imagen */}
+                  <img   className={  ` ${weaponActive?'weapon-active':'img-weapon-static'} ${rotateWeapon ? 'rotateimage' : ''}${rotateWeapon2 ? 'aim-enemy':''} `} src="/img/weapon/1.png" alt="weapon"  onClick={TakeWeapon} /> {/* Agrega el manejador de clics en la imagen */}
                   </div>
                   </div>
                   
@@ -311,7 +320,7 @@ function Aplyshoot(shooter, target){
                 </div>
                 <div className='content-weapon-RouletteGame'>
                 <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
-                <img className={`img-weapon-static-invert ${rotateWeapon ? 'rotateimage-invert ' : ''}${rotateWeapon2 ? 'aim-enemy-invert':''}` } src="/img/weapon/1.png" alt="weapon" onClick={HandleButtonsFire} />
+                <img className={` ${weaponActive?'weapon-active-invert':'img-weapon-static-invert'}  ${rotateWeapon ? 'rotateimage-invert ' : ''}${rotateWeapon2 ? 'aim-enemy-invert':''} ` } src="/img/weapon/1.png" alt="weapon" onClick={TakeWeapon} />
                 </div>
                 </div>
                 

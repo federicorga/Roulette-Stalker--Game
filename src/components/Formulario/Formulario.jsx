@@ -173,7 +173,7 @@ const Formulario = () => {
         <select className='select-form'
           value={faccion}
           onChange={handleFaccionChange}
-          required
+        
         >
           <option value="">Selecciona una facción</option>
           <option value="faccion1" data-image="img" >Lista de Facciones</option>
@@ -189,7 +189,7 @@ const Formulario = () => {
         <select className='select-form'
           value={genero}
           onChange={handleGeneroChange}
-          required
+        
         >
           <option value="">Selecciona un género</option>
           <option value="masculino">Masculino</option>

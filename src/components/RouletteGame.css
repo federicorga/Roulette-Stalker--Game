@@ -75,40 +75,65 @@
 .content-weapon-RouletteGame{
     display: flex;
     background-blend-mode: multiply;
-    background-image: url("/img/woodtable.png");
-    height: 150px;
-    background-size: cover;
+    background-image: url('/img/table.png');
+    height: 100%;
+    width: 500px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 5px;
     align-items: center;
+    justify-content: center;
 }
 
 .img-weapon-static{
     cursor: url("/img/mouse/handpoint.webp"), pointer;
     transition: 0.5s;
     width: 230px;
+    filter: drop-shadow(1px 4px 3px rgba(4, 3, 3, 2.5));
+    transform: scale(0.9) rotate(19deg);
 }
 
 .img-weapon-static:hover{
-    transform: scale(1.1);
+    filter: drop-shadow(1px 8px 0px rgba(4, 3, 3, 0.5));
+    transform: scale(1) rotate(19deg);
 }
 
 
-.img-weapon-static:active{
-    transform: scale(0.9);
-}
+
 
 .img-weapon-static-invert{
     cursor: url("/img/mouse/handpoint.webp"), pointer;
     transition: 0.5s;
     width: 230px;
-    transform: scaleX(-1) scale(1);
-}
-.img-weapon-static-invert:hover{
-    transform: scaleX(-1) scale(1.1); /* Escala negativa y aumento de tamaño */
+    transition: 0.5s;
+    width: 230px;
+    filter: drop-shadow(1px 4px 3px rgba(4, 3, 3, 2.5));
+   
+    transform: scaleX(-1) scale(0.9)rotate(19deg);
 }
 
-.img-weapon-static-invert:active{
-    transform: scaleX(-1) scale(0.9);
+.weapon-active{
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: 0.5s;
+    transform:  scale(1.2);
+    filter: none;
+    width: 230px;
+}
+
+.weapon-active-invert{
+    cursor: url("/img/mouse/handpoint.webp"), pointer;
+    transition: 0.5s;
+    width: 230px;
+    transform:  scaleX(-1)scale(1.2) ;
+}
+
+
+
+.img-weapon-static-invert:hover{
+    transform: scaleX(-1) scale(1) rotate(19deg); /* Escala negativa y aumento de tamaño */
+    filter: drop-shadow(1px 8px 0px rgba(4, 3, 3, 0.5));
+    
 }
 
 
@@ -221,24 +246,24 @@ transition: 0.2s !important;
 
 .content-botonshotA{
     position: relative;
-    right: 106px;
+    right: 142px;
 }
 
 .content-botonshotB{
     position: relative;
-    left: 136px;
+    left: 169px;
     width: 183px;
 }
 
 .content-botonshotA-invert{
     position: relative;
-    right: 136px;
+    right: 169px;
     width: 183px;
 }
 
 .content-botonshotB-invert{
     position: relative;
-    left: 106px;
+    left: 142px;
 }
 
 
@@ -246,22 +271,24 @@ transition: 0.2s !important;
 
 .rotateimage {
     transition: 0.9s;
-    transform: rotate(-140deg);
+    transform: scale(1.2) rotate(-140deg);
     
 }
 .aim-enemy{
     transition: 0.5s;
-    transform: rotate(-26deg);
+    transform: scale(1.2) rotate(-26deg);
 }
+
+
 
 .rotateimage-invert{
     transition: 0.9s;
-    transform: scaleX(-1) scale(1)  rotate(-140deg);
+    transform: scaleX(-1) scale(1.2)  rotate(-140deg);
 }
 
 .aim-enemy-invert{
     transition: 0.5s;
-    transform: scaleX(-1) scale(1)  rotate(-26deg);
+    transform: scaleX(-1) scale(1.2)  rotate(-26deg);
 }
 
 .shake-animation {
