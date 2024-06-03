@@ -111,16 +111,15 @@ const RouletteGame = () => {
     ReloadButton,
     ActionAndAudio,
     NuevoArrayDeInventario,
-    tolltipBulletsVis
+    tolltipBulletsVis,
+    shootAnimation,
+    damageAnimationPlayer1,
+    damageAnimationPlayer2,
   
   
   } = useRouletteFunctionsContext();
-  
 
-
-
-
-  useEffect(() => {
+    useEffect(() => {
     if (player1Health === 0 || player2Health === 0) {
       setGameOver(true);
       if (player1Health === 0) {
@@ -147,10 +146,11 @@ const RouletteGame = () => {
 
   }, [balaActual]); // Este efecto se ejecutará cuando el estado de la bala actual cambie
 
-  const [rotateWeapon, setRotateWeapon] = useState(false);
-  const [rotateWeapon2, setRotateWeapon2] = useState(false);
-  const [weaponActive, setWeaponActive] =useState(false);
-  const [weaponActive2, setWeaponActive2] =useState(false);
+  const [rotateWeapon, setRotateWeapon] = useState(false); //rota el arma del jugador 1
+  const [rotateWeapon2, setRotateWeapon2] = useState(false); //rota el arma del jugador 2
+  const [weaponActive, setWeaponActive] =useState(false); //el arma esta lista para disparar.
+  const [rotateFire,setRotateFire]=useState(false); //rota el fuego del disparo
+
 
   function ReloadGame(){ 
 
@@ -161,38 +161,32 @@ const RouletteGame = () => {
     setDangerousBullets(0);
     setSafeBullets(0)
     setBullets([]);
-
   }
 
 
 function playGame(){
-
-
   ReloadInventory();
-
-  
-  
 }
 
 function Aplyshoot(shooter, target){
 
-  setRotateWeapon(false);
+  Shoot(shooter, target); 
+  setTimeout(function() {
+    setRotateWeapon(false);
   setRotateWeapon2(false);
 setWeaponActive(false);
-setWeaponActive2(false);
-  Shoot(shooter, target);
+  }, 300);
+  
 }
 
 function TakeWeapon(){
   HandleButtonsFire();
   setWeaponActive(!weaponActive);
-  setWeaponActive2(!weaponActive);
+
 
 }
 
-
   return (
-    
     <div className='conent-rouletteGame'>
            <section className='section-titulo-ruleta'>
       <h1>R.U.L.E.T.A ~ <img className='img-ruleta-titulo' src="/img/cargando.webp" alt="" /> ~ S.T.A.L.K.E.R</h1>
@@ -258,20 +252,16 @@ function TakeWeapon(){
             </div>
            
           <section className='content-info-rulet'>
-      
           <section className='content-UserBoxInfo-Inventori'>
-          
-            <div className={turn==='player1'?"player-turn":""}>
+            <div className={ damageAnimationPlayer1===true?'player-damage':""}>
+            <div className={`${turn==='player1'?"player-turn":""}` }>
               <UserBoxInfo factionUser={player1Faction} NameUser={jugador1} LifeUser={player1Health} imgUser={fotoSeleccionadaProfile} backgroundImage={fotoSeleccionadaFaction} />
               </div>
-              
+              </div>
               <div>
               {bullets.length===0?(""):(   
            <Inventory
-           visible={turn === 'player1'}
-       
-        
-        
+           visible={turn === 'player1'}        
          />
               )}
              </div>
@@ -281,26 +271,38 @@ function TakeWeapon(){
                    
             {bullets.length===0?(""):(
              <>
-      
              {turn === 'player1' ? (
              
                 <div className='content-weapon-buttons-shoot'>
                   <div className='content-the-buttons-shot'>
                   <div className='content-botonshotA'
-                  onMouseEnter={() => setRotateWeapon(true)}
-                  onMouseLeave={() => setRotateWeapon(false)}>
+                  onMouseEnter={() => {setRotateWeapon(true)
+                    setRotateFire(true)}}
+                  
+                  onMouseLeave={() => {
+                   
+                    setRotateWeapon(false); // Desactivar la rotación después de 0.5 segundo
+                    setRotateFire(false)
+                  }}>
                   {showButtonsFire &&(<ButtonShoot text={`Dispararme`}   className='button-item' onClick={() => Aplyshoot('player1', 'player1')}></ButtonShoot>)}
                   </div> 
                   <div className='content-botonshotB'
-                  onMouseEnter={() => setRotateWeapon2(true)}
-                  onMouseLeave={() => setRotateWeapon2(false)}>
+                  onMouseEnter={() => {setRotateWeapon2(true)
+                  setRotateFire(false)}}
+                  
+                  
+                  onMouseLeave={() => {setRotateWeapon2(false)
+                  setRotateFire(true)}}>
                   {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador2}`}     className='button-item' onClick={() => Aplyshoot('player1', 'player2')}></ButtonShoot>)}
                   </div>
                   </div>
                   <div className='content-weapon-RouletteGame' >
                     <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
                   <img   className={  ` ${weaponActive?'weapon-active':'img-weapon-static'} ${rotateWeapon ? 'rotateimage' : ''}${rotateWeapon2 ? 'aim-enemy':''} `} src="/img/weapon/1.png" alt="weapon"  onClick={TakeWeapon} /> {/* Agrega el manejador de clics en la imagen */}
+                  {shootAnimation&& <img className={rotateFire?'fire-weapon-invert':'fire-weapon'} src="/img/weapon/fire.webp" alt="" />}
+                  
                   </div>
+
                   </div>
                   
                 </div>
@@ -308,22 +310,28 @@ function TakeWeapon(){
                 <div className='content-weapon-buttons-shoot'>
                    <div className='content-the-buttons-shot'>
                 <div className='content-botonshotA-invert'
-                onMouseEnter={() => setRotateWeapon2(true)}
-                onMouseLeave={() => setRotateWeapon2(false)}>
+                onMouseEnter={() => {setRotateWeapon2(true)
+                  setRotateFire(true)
+                }}
+                onMouseLeave={() => {setRotateWeapon2(false)
+                  setRotateFire(false)
+                }}>
                 {showButtonsFire &&(<ButtonShoot  text={`Disparar a ${jugador1}`}  className='button-item' onClick={() => Aplyshoot('player2', 'player1')}></ButtonShoot>)}
                 </div>
                 <div className='content-botonshotB-invert'
-                  onMouseEnter={() => setRotateWeapon(true)}
-                  onMouseLeave={() => setRotateWeapon(false)}>
+                  onMouseEnter={() => {setRotateWeapon(true)
+                    setRotateFire(false)}}
+                  onMouseLeave={() => {setRotateWeapon(false)
+                    setRotateFire(true)}}>
                 {showButtonsFire &&(<ButtonShoot text={`Dispararme`} className='button-item' onClick={() => Aplyshoot('player2', 'player2')}></ButtonShoot>)}
                 </div>
                 </div>
                 <div className='content-weapon-RouletteGame'>
                 <div className={` ${rotateWeapon ? 'shake-animation' : ''} `}>
                 <img className={` ${weaponActive?'weapon-active-invert':'img-weapon-static-invert'}  ${rotateWeapon ? 'rotateimage-invert ' : ''}${rotateWeapon2 ? 'aim-enemy-invert':''} ` } src="/img/weapon/1.png" alt="weapon" onClick={TakeWeapon} />
+                {shootAnimation&& <img className={rotateFire?'fire-weapon-invert2':'fire-weapon2'} src="/img/weapon/fire.webp" alt="" />}
                 </div>
-                </div>
-                
+                </div> 
                 </div>           
               )} 
             </>
@@ -331,16 +339,16 @@ function TakeWeapon(){
          </div>
 
          <section className='content-UserBoxInfo-Inventori'>
+          <div className={ damageAnimationPlayer2===true?'player-damage':""}>
               <div className={turn==='player2'?"player-turn":""}>
               <UserBoxInfo invert={true} NameUser={jugador2} LifeUser={player2Health} factionUser={player2Faction} imgUser={fotoSeleccionadaProfile2}  backgroundImage={fotoSeleccionadaFaction2} />
+              </div>
               </div>
             <div>
             {bullets.length===0?(""):(   
              <Inventory
              visible={turn === 'player2'}
-          
-         
-           
+   
            />
             )}
              </div>
@@ -350,11 +358,8 @@ function TakeWeapon(){
  </div>
 )}
 
-
-
 </div>
-
-      
+    
   );
   
 };

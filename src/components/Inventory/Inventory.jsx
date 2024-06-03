@@ -6,13 +6,7 @@ import DodgeBullet from '../ButtonsItems/DodgeBullet';
 import ShowBullet from '../ButtonsItems/ShowBullet';
 import { useRouletteFunctionsContext } from '../providers/RouletteFunctionsProvider';
 
-function GenerarNumeroRandom(min, max) {
-  // Genera un número aleatorio entre min y max (incluyendo ambos)
-  min = Math.ceil(min);
-max = Math.floor(max);
-const num= Math.floor(Math.random() * (max - min + 1)) + min;
-return num;
-};
+
 
 function MezclarArray(array) { //esta funcion mezcla la posiciones dentro del array y devuelve uno nuevo.
   // Copiar el array para no modificar el original
@@ -25,14 +19,14 @@ function MezclarArray(array) { //esta funcion mezcla la posiciones dentro del ar
   }
   
   return newArray;
-}
+};
 
 function ReducirArray(array, numItems){ // reduce el tamaño del array a la cantidad solicitada
 
   const arrayReducido=array.slice(0,numItems);
 
   return arrayReducido;
-}
+};
 
 
 function Inventory({  visible }) {
@@ -78,7 +72,6 @@ useEffect(() => {
 
 
   SetBotone(ReducirArray(MezclarArray(newBotone),numRandom));
-
 
 },[]);
 
