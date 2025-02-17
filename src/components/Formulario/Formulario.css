@@ -77,6 +77,66 @@ padding: 2px;
   }
 
 
+  /*SCROLLBAR - GALERIAS*/
+
+
+  .galeria::-webkit-scrollbar, ::-webkit-scrollbar {
+
+    background-image: url("/img/scrollBar/fondoscroll.webp");
+  }
+  
+  .galeria::-webkit-scrollbar-thumb {
+   
+    background-image: url("/img/scrollBar/barrascroll.webp");
+  
+    
+  }
+  
+  .galeria::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+   
+    border-radius: 44%;
+    background-size: cover;
+    background-position: 50%;
+  }
+  
+  
+  .galeria::-webkit-scrollbar-track {
+  
+    background-image: url("/img/scrollBar/elementscroll.webp");
+
+    margin: 0.2rem 0;
+  }
+  
+
+
+  .galeria-invert::-webkit-scrollbar, ::-webkit-scrollbar {
+
+    background-image: url("/img/scrollBar/fondoscroll.webp");
+  }
+  
+  .galeria-invert::-webkit-scrollbar-thumb {
+   
+    background-image: url("/img/scrollBar/barrascroll.webp");
+  
+    
+  }
+  
+  .galeria-invert::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+   
+    border-radius: 44%;
+    background-size: cover;
+    background-position: 50%;
+  }
+  
+  
+  .galeria-invert::-webkit-scrollbar-track {
+  
+    background-image: url("/img/scrollBar/elementscroll.webp");
+
+    margin: 0.2rem 0;
+  }
+  
+
   .input-form{
     background: rgba(51, 51, 51, .5);
     border: 2px #776b6b;

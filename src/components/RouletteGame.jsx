@@ -6,6 +6,7 @@ import UserBoxInfo from './UserBoxInfo/UserBoxInfo';
 import { useRouletteFunctionsContext } from './providers/RouletteFunctionsProvider';
 import { Link } from 'react-router-dom';
 import TooltipBullets from './ToolsTips/TooltipBullets';
+import ButtonGeneric from './ButtonGeneric/ButtonGeneric';
 
 
 
@@ -193,16 +194,10 @@ function TakeWeapon(){
 
       </section>
            <div className='content-menu-Roullete'>
-            <button className='pushable'>
-            <span className="shadow"></span>
-            <span className="edge"></span>
-            <span className="front-other">
-            <Link to="/">Menu</Link>
-            </span>
-            </button>
+           <ButtonGeneric titleButton='Menú' linkDirection='/'></ButtonGeneric>
        </div>
       {gameOver ? (
-        
+        <section className='Winer-section'>
         <div className='content-winer-game-rulet'>
           <h1>Fin del Juego!</h1>
           <div>
@@ -210,7 +205,7 @@ function TakeWeapon(){
           {winner===jugador1? <UserBoxInfo factionUser={player1Faction} NameUser={jugador1} LifeUser={player1Health} imgUser={fotoSeleccionadaProfile} backgroundImage={fotoSeleccionadaFaction} />:<UserBoxInfo invert={true} NameUser={jugador2} LifeUser={player2Health} factionUser={player2Faction} imgUser={fotoSeleccionadaProfile2}  backgroundImage={fotoSeleccionadaFaction2} />}
           </div>
          
-          <div className='content-menu-Roullete'>
+          <div className='content-menu-winer-game-rulet'>
             <button className='pushable' >
             <span className="shadow"></span>
             <span className="edge"></span>
@@ -218,9 +213,11 @@ function TakeWeapon(){
             <Link to="/game" onClick={ReloadGame}>volver a jugar</Link>
             </span>
             </button>
+            <ButtonGeneric titleButton='Menú princial' linkDirection='/'></ButtonGeneric>
        </div>
      
         </div>
+        </section>
         
       ) : (
         <div >

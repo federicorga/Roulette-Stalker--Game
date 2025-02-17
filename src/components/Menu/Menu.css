@@ -21,8 +21,12 @@
     height: 100%;
 
  
-    background-image: url('/public/img/wall4.jpeg');
+    background-image: url('/public/img/barp2.png');
     background-size: cover;
+
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* 100% del alto de la pantalla */
  
 }
 

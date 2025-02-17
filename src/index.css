@@ -1,3 +1,13 @@
+@font-face{
+  font-family: 'oswald';
+  src: 
+       url('../font/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 @font-face {
   font-family: 'stalker';
   src: url('../font/AmazS.T.A.L.K.E.R.v.3.0.ttf') format('truetype'); 
@@ -8,6 +18,7 @@
 html{
   animation: animateCursor 0.8s infinite;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -108,6 +119,38 @@ background-position-y: -7px;
     
   };
 
+
+  /*SCROLLBAR*/
+
+/*--SCROLLBAR---*/
+
+.scroll-prs::-webkit-scrollbar, ::-webkit-scrollbar {
+
+  background-image: url("/img/scrollBar/fondoscroll.webp");
+}
+
+.scroll-prs::-webkit-scrollbar-thumb {
+ 
+  background-image: url("/img/scrollBar/barrascroll.webp");
+
+  
+}
+
+.scroll-prs::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+ 
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+
+.scroll-prs::-webkit-scrollbar-track {
+
+  background-image: url("/img/scrollBar/elementscroll.webp");
+  margin: 2rem 0;
+}
+
+
   [data-tooltip] {
     display: flex;
     position: relative;
@@ -165,21 +208,23 @@ background-position-y: -7px;
 
 
 .front-initial {
-  display: block;
-  position: relative;
-  border-radius: 8px;
-  background-color: #ee991a;
-  background-blend-mode: multiply;
-  background-image: url(https://www.stalker2.com/_nuxt/img/assets/reusable/button-bg.jpg);
-  padding: 16px 32px;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 1rem;
-  transform: translateY(-4px);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  display: flex;
+      position: relative;
+      border-radius: 8px;
+      /* background-color: #ee991a; */
+      background-blend-mode: multiply;
+      background-image: url('/img/button/orange-before.svg');
+      padding: 5px 32px;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: 'oswald', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 1rem;
+      transform: translateY(-4px);
+      transition: transform 600mscubic-bezier(0.3, 0.7, 0.4, 1);
+      align-items: center;
 
 }
 
